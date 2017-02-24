@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Team Name"
+        android:id="@+id/teamName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Clock"
+        android:id="@+id/timeLeft"
+        android:layout_below="@+id/teamName"
+        android:layout_alignStart="@+id/teamName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Period"
+        android:id="@+id/period"
+        android:layout_marginStart="8dp"
+        android:layout_alignTop="@+id/timeLeft"
+        android:layout_toEndOf="@+id/timeLeft" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="scoreDiff"
+        android:id="@+id/scoreDiff"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/period"
+        android:layout_toEndOf="@+id/period"
+        android:layout_marginStart="8dp" />
+</RelativeLayout>

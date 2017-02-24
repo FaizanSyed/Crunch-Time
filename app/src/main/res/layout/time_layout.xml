@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Quarter"
+        android:id="@+id/periodTextView"
+        android:layout_marginTop="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Minutes Left"
+        android:id="@+id/minTextView"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/periodTextView"
+        android:layout_alignStart="@+id/periodTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Seconds Left"
+        android:id="@+id/secTextView"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/minTextView"
+        android:layout_alignEnd="@+id/minTextView" />
+
+    <Spinner
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/periodSpinner"
+        android:layout_marginStart="40dp"
+        android:layout_alignTop="@+id/periodTextView"
+        android:layout_toEndOf="@+id/scoreDiffTextView" />
+
+    <Spinner
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/minLeftSpinner"
+        android:layout_alignBottom="@+id/minTextView"
+        android:layout_alignStart="@+id/periodSpinner" />
+
+    <Spinner
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/secLeftSpinner"
+        android:layout_alignTop="@+id/secTextView"
+        android:layout_alignStart="@+id/minLeftSpinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Score Difference"
+        android:id="@+id/scoreDiffTextView"
+        android:layout_below="@+id/secTextView"
+        android:layout_alignStart="@+id/secTextView"
+        android:layout_marginTop="40dp" />
+
+    <Spinner
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/scoreDiffSpinner"
+        android:layout_alignTop="@+id/scoreDiffTextView"
+        android:layout_alignStart="@+id/secLeftSpinner" />
+</RelativeLayout>

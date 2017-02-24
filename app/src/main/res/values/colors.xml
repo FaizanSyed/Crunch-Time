@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="ATL">#E13A3E</color>
+    <color name="BKN">#061922</color>
+    <color name="BOS">#008348</color>
+    <color name="CHA">#1D1160</color>
+    <color name="CHI">#CE1141</color>
+    <color name="CLE">#860038</color>
+    <color name="DAL">#007DC5</color>
+    <color name="DEN">#4D90CD</color>
+    <color name="DET">#ED174C</color>
+    <color name="GSW">#FDB927</color>
+    <color name="HOU">#CE1141</color>
+    <color name="IND">#FFC633</color>
+    <color name="LAC">#ED174C</color>
+    <color name="LAL">#FDB927</color>
+    <color name="MEM">#0F586C</color>
+    <color name="MIA">#98002E</color>
+    <color name="MIL">#00471B</color>
+    <color name="MIN">#005083</color>
+    <color name="NOP">#002B5C</color>
+    <color name="NYK">#006BB6</color>
+    <color name="OKC">#007DC3</color>
+    <color name="ORL">#007DC5</color>
+    <color name="PHI">#ED174C</color>
+    <color name="PHX">#E56020</color>
+    <color name="POR">#E03A3E</color>
+    <color name="SAC">#724C9F</color>
+    <color name="SAS">#BAC3C9</color>
+    <color name="TOR">#CE1141</color>
+    <color name="UTA">#002B5C</color>
+    <color name="WAS">#002B5C</color>
+</resources>
