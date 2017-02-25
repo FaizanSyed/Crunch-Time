@@ -14,17 +14,18 @@ import java.util.Arrays;
 
 public class UIManager {
 
-    private static ArrayList<String> selectedTeamNames;
-    private static ArrayList<String> selectedTeamAcros;
+    private ArrayList<String> selectedTeamNames;
+    private ArrayList<String> selectedTeamAcros;
 
+    public UIManager(){}
 
-    public static void showAddDialog(Context context){
+    public void showAddDialog(Context context){
         selectedTeamNames = new ArrayList();
         selectedTeamAcros = new ArrayList();
         showTeamDialog(context);
     }
 
-    private static void showTeamDialog(final Context context){
+    private void showTeamDialog(final Context context){
         AlertDialog dialog = new AlertDialog.Builder(context)
                 .setTitle("Select Teams to Add")
                 .setMultiChoiceItems(NBAConsts.allTeamNames, null, new DialogInterface.OnMultiChoiceClickListener() {
@@ -53,7 +54,7 @@ public class UIManager {
         dialog.show();
     }
 
-    private static void showTimeDialog(final Context context){
+    private void showTimeDialog(final Context context){
         View timeView = View.inflate(context, R.layout.time_layout, null);
         final Spinner periodSpinner = (Spinner) timeView.findViewById(R.id.periodSpinner);
         final Spinner secLeftSpinner = (Spinner) timeView.findViewById(R.id.secLeftSpinner);
@@ -85,6 +86,9 @@ public class UIManager {
                                 ((int) minLeftSpinner.getSelectedItem()),
                                 ((int) secLeftSpinner.getSelectedItem()),
                                 ((int) scoreDiffSpinner.getSelectedItem()));
+                        MainActivity mainActivity = (MainActivity) context;
+                        mainActivity.updateListView();
+                        mainActivity.startNBAService();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -96,7 +100,7 @@ public class UIManager {
         dialog.show();
     }
 
-    private static void addToDB(Context context, int period, int minLeft, int secLeft, int scoreDiff){
+    private void addToDB(Context context, int period, int minLeft, int secLeft, int scoreDiff){
         int numSelectedTeams = selectedTeamNames.size();
         TeamDBManager teamDBManager = new TeamDBManager(context);
         int timeRemaining = (60*minLeft)+secLeft;
@@ -110,7 +114,7 @@ public class UIManager {
 
 
 
-    public static void showRemoveDialog(final Context context){
+    public void showRemoveDialog(final Context context){
         selectedTeamNames = new ArrayList();
         selectedTeamAcros = new ArrayList();
         TeamDBManager teamDBManager = new TeamDBManager(context);
@@ -141,6 +145,9 @@ public class UIManager {
                         if(!selectedTeamNames.isEmpty()) {
                             removeFromDB(context);
                         }
+                        MainActivity mainActivity = (MainActivity) context;
+                        mainActivity.updateListView();
+                        mainActivity.startNBAService();
                     }
                 }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -150,7 +157,7 @@ public class UIManager {
         dialog.show();
     }
 
-    public static void removeFromDB(Context context){
+    public void removeFromDB(Context context){
         int numTeamsToRemove = selectedTeamAcros.size();
         TeamDBManager teamDBManager = new TeamDBManager(context);
 

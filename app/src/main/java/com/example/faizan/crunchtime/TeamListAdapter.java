@@ -38,9 +38,8 @@ class TeamListAdapter extends ArrayAdapter<Team> {
 
         int minsLeft = aTeam.get_timeRemaining() / 60;
         int secsLeft = aTeam.get_timeRemaining() % 60;
-        String formattedMinsLeft = String.format("%02d", minsLeft);
         String formattedSecsLeft = String.format("%02d", secsLeft);
-        timeLeft.setText(formattedMinsLeft + ":" + formattedSecsLeft);
+        timeLeft.setText(minsLeft + ":" + formattedSecsLeft);
 
         if(aTeam.get_period() == 1) period.setText("1st quarter");
         else if(aTeam.get_period() == 2) period.setText("2nd quarter");

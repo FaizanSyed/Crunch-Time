@@ -130,6 +130,7 @@ public class NBAGames {
                     }
                     // If difference in time is less than a minute, wait 1 minute in between requests
                     else if(secsLeftInGame - reqSecsLeftInGame <= 60){
+                        Log.d("GICG", "Diff less that 60");
                         aTrimGame.put("ni", 60);
                         trimGamesForNotif.put(aTrimGame);
                     }
@@ -163,9 +164,9 @@ public class NBAGames {
         }
 
         try {
-            allGamesArr = TempConsts.getjObj().getJSONObject("gs").getJSONArray("g");
+            //allGamesArr = TempConsts.getjObj().getJSONObject("gs").getJSONArray("g");
             Log.d("getScores", "infoForAllGames = " + infoForAllGames.toString());
-            //allGamesArr = infoForAllGames.getJSONObject("gs").getJSONArray("g");
+            allGamesArr = infoForAllGames.getJSONObject("gs").getJSONArray("g");
         }catch (JSONException e) {
             Log.d("GetNBAScoresJSONExep", e.getMessage());
             return;
