@@ -12,6 +12,8 @@ public class Team {
     private String _teamName;
     private int _sentNotif;
 
+    public Team(){}
+
     public Team(String _teamAcro, String _teamName, int _period, int _timeRemaining, int _scoreDiff, int _sentNotif) {
         this._period = _period;
         this._scoreDiff = _scoreDiff;
@@ -71,5 +73,9 @@ public class Team {
 
     public void set_sentNotif(int _sentNotif) {
         this._sentNotif = _sentNotif;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/teamBackgroundLayout">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +20,8 @@
         android:text="Clock"
         android:id="@+id/timeLeft"
         android:layout_below="@+id/teamName"
-        android:layout_alignStart="@+id/teamName" />
+        android:layout_alignStart="@+id/teamName"
+        android:paddingBottom="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,7 +31,8 @@
         android:id="@+id/period"
         android:layout_marginStart="8dp"
         android:layout_alignTop="@+id/timeLeft"
-        android:layout_toEndOf="@+id/timeLeft" />
+        android:layout_toEndOf="@+id/timeLeft"
+        android:paddingBottom="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,5 +43,6 @@
         android:layout_marginLeft="10dp"
         android:layout_alignTop="@+id/period"
         android:layout_toEndOf="@+id/period"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp"
+        android:paddingBottom="10dp" />
 </RelativeLayout>

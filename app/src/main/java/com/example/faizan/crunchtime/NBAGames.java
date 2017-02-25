@@ -23,6 +23,8 @@ public class NBAGames {
     private static JSONArray allTrimGamesArr;
 
     public static JSONArray getInterCloseGames(Context context){
+        Log.d("CICG", "Top of getInterCloseGames");
+
         // Get current NBA scores
         getScores();
 
@@ -85,7 +87,7 @@ public class NBAGames {
                         int hoursUntilGame = hourOfGame - currESTHour;
                         int minsUntilGame = minOfGame - currESTMin;
 
-                        int secondsUntilGameStart = ((hoursUntilGame*60)+minsUntilGame+1)*60;
+                        int secondsUntilGameStart = ((hoursUntilGame*60)+minsUntilGame+15)*60;
 
                         if(secondsUntilGameStart <= 60){
                             aTrimGame.put("ni", 60);
@@ -124,7 +126,7 @@ public class NBAGames {
                     else if(secsLeftInGame <= reqSecsLeftInGame && reqScoreDiff >= absScoreDiff){
                         aTrimGame.put("ni", 0);
                         trimGamesForNotif.put(aTrimGame);
-                        teamDBManager.setSentNotif(aTrimGame.getString(interTeamAcro));
+                        teamDBManager.setSentNotif(interTeamAcro);
                     }
                     // If difference in time is less than a minute, wait 1 minute in between requests
                     else if(secsLeftInGame - reqSecsLeftInGame <= 60){
@@ -136,17 +138,21 @@ public class NBAGames {
                         aTrimGame.put("ni", secsLeftInGame - reqSecsLeftInGame);
                         trimGamesForNotif.put(aTrimGame);
                     }
+                    Log.d("CICGForIf", "Bottom of If");
 
                 }
             } catch(JSONException e){
                 Log.d("getInterCloseGamesExep", e.getMessage());
                 return null;
             }
+            Log.d("CICGFor", "Bottom of for");
         }
+        Log.d("CICG", "Before return");
         return trimGamesForNotif;
     }
 
     private static void getScores(){
+        Log.d("getScores", "Top of getScores");
         allTrimGamesArr = new JSONArray();
         try {
             infoForAllGames = new RequestNBAScores().execute().get();
@@ -157,9 +163,9 @@ public class NBAGames {
         }
 
         try {
-            //allGamesArr = TempConsts.getjObj().getJSONObject("gs").getJSONArray("g");
+            allGamesArr = TempConsts.getjObj().getJSONObject("gs").getJSONArray("g");
             Log.d("getScores", "infoForAllGames = " + infoForAllGames.toString());
-            allGamesArr = infoForAllGames.getJSONObject("gs").getJSONArray("g");
+            //allGamesArr = infoForAllGames.getJSONObject("gs").getJSONArray("g");
         }catch (JSONException e) {
             Log.d("GetNBAScoresJSONExep", e.getMessage());
             return;
@@ -206,6 +212,7 @@ public class NBAGames {
         StringBuilder stringBuilder;
         @Override
         protected JSONObject doInBackground(Void... params) {
+            Log.d("RNBAS", "Top of dIB");
             try {
                 InputStream response = new URL(NBAConsts.nbaScoresEndpoint).openStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response));

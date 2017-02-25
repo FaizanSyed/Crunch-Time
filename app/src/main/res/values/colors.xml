@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="offWhite">#FDFDFD</color>
     <color name="ATL">#E13A3E</color>
     <color name="BKN">#061922</color>
     <color name="BOS">#008348</color>

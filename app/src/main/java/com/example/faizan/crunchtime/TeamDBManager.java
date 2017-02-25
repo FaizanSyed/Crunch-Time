@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TeamDBManager extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -23,7 +26,6 @@ public class TeamDBManager extends SQLiteOpenHelper {
 
     public TeamDBManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.d("TDBM", "Bottom");
     }
 
     @Override
@@ -154,6 +156,31 @@ public class TeamDBManager extends SQLiteOpenHelper {
         int periodsRemaining = (NBAConsts.periodsInGame.length) - (cursor.getInt(cursor.getColumnIndex(COLUMN_PERIOD)));
         int secsRemainingInPeriod = cursor.getInt(cursor.getColumnIndex(COLUMN_TIMEREMAINING));
         return (periodsRemaining*12*60)+secsRemainingInPeriod;
+    }
+
+    public List<Team> getAllContacts() {
+        List<Team> teamList = new ArrayList<Team>();
+        String query = "SELECT  * FROM " + TABLE_INTERTEAMS;
+
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Team team = new Team();
+                team.set_id(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_ID))));
+                team.set_teamAcro(cursor.getString(cursor.getColumnIndex(COLUMN_TEAMACRO)));
+                team.set_teamName(cursor.getString(cursor.getColumnIndex(COLUMN_TEAMNAME)));
+                team.set_period(cursor.getInt(cursor.getColumnIndex(COLUMN_PERIOD)));
+                team.set_timeRemaining(cursor.getInt(cursor.getColumnIndex(COLUMN_TIMEREMAINING)));
+                team.set_scoreDiff(cursor.getInt(cursor.getColumnIndex(COLUMN_SCOREDIFF)));
+                team.set_sentNotif(cursor.getInt(cursor.getColumnIndex(COLUMN_SENTNOTIF)));
+
+                teamList.add(team);
+            } while (cursor.moveToNext());
+        }
+
+        return teamList;
     }
 
     public String TeamDBtoString(){
