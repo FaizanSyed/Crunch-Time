@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         teamDBManager = new TeamDBManager(MainActivity.this);
 
         startNBAService();
-
         updateListView();
 
         addButton.setOnClickListener(new View.OnClickListener() {

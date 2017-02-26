@@ -111,9 +111,6 @@ public class UIManager {
 
     }
 
-
-
-
     public void showRemoveDialog(final Context context){
         selectedTeamNames = new ArrayList();
         selectedTeamAcros = new ArrayList();

@@ -57,7 +57,6 @@ class TeamListAdapter extends ArrayAdapter<Team> {
         period.setTextColor(context.getResources().getColor(R.color.offWhite));
         scoreDiff.setTextColor(context.getResources().getColor(R.color.offWhite));
 
-
         return teamView;
     }
 }

@@ -10,7 +10,6 @@ import android.util.Log;
 public class NBAService extends Service {
 
     private Thread newThread;
-
     public NBAService(){}
 
     @Nullable
