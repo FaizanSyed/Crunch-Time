@@ -153,7 +153,7 @@ public class TeamDBManager extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_INTERTEAMS + " WHERE " + COLUMN_TEAMACRO + "=\"" + teamAcro + "\";";
         Cursor cursor = db.rawQuery(query, null);
         cursor.moveToFirst();
-        int periodsRemaining = (NBAConsts.periodsInGame.length) - (cursor.getInt(cursor.getColumnIndex(COLUMN_PERIOD)));
+        int periodsRemaining = (NBAConsts.PERIODS_IN_GAME.length) - (cursor.getInt(cursor.getColumnIndex(COLUMN_PERIOD)));
         int secsRemainingInPeriod = cursor.getInt(cursor.getColumnIndex(COLUMN_TIMEREMAINING));
         return (periodsRemaining*12*60)+secsRemainingInPeriod;
     }

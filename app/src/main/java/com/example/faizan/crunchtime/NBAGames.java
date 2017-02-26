@@ -103,7 +103,7 @@ public class NBAGames {
 
                     }
 
-                    int periodsLeftInGame = NBAConsts.periodsInGame.length - aTrimGame.getInt("p");
+                    int periodsLeftInGame = NBAConsts.PERIODS_IN_GAME.length - aTrimGame.getInt("p");
                     Log.d("GICGDuringGame", "periodsLeftInGame = " + periodsLeftInGame);
                     int minsLeftInPeriod = Integer.parseInt(aTrimGame.getString("cl").substring(0,2));
                     Log.d("GICGDuringGame","minsLeftInPeriod = " + minsLeftInPeriod);
@@ -215,7 +215,7 @@ public class NBAGames {
         protected JSONObject doInBackground(Void... params) {
             Log.d("RNBAS", "Top of dIB");
             try {
-                InputStream response = new URL(NBAConsts.nbaScoresEndpoint).openStream();
+                InputStream response = new URL(NBAConsts.NBA_SCORES_ENDPOINT).openStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response));
                 stringBuilder = new StringBuilder();
                 String line = null;

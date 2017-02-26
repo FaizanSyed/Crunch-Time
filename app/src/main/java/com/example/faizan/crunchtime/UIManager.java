@@ -28,15 +28,15 @@ public class UIManager {
     private void showTeamDialog(final Context context){
         AlertDialog dialog = new AlertDialog.Builder(context)
                 .setTitle("Select Teams to Add")
-                .setMultiChoiceItems(NBAConsts.allTeamNames, null, new DialogInterface.OnMultiChoiceClickListener() {
+                .setMultiChoiceItems(NBAConsts.ALL_TEAM_NAMES, null, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
                         if (isChecked) {
-                            selectedTeamNames.add(NBAConsts.allTeamNames[indexSelected]);
-                            selectedTeamAcros.add(NBAConsts.allTeamAcros[indexSelected]);
+                            selectedTeamNames.add(NBAConsts.ALL_TEAM_NAMES[indexSelected]);
+                            selectedTeamAcros.add(NBAConsts.ALL_TEAM_ACROS[indexSelected]);
                         } else if (!isChecked) {
-                            selectedTeamNames.remove(NBAConsts.allTeamNames[indexSelected]);
-                            selectedTeamAcros.remove(NBAConsts.allTeamAcros[indexSelected]);
+                            selectedTeamNames.remove(NBAConsts.ALL_TEAM_NAMES[indexSelected]);
+                            selectedTeamAcros.remove(NBAConsts.ALL_TEAM_ACROS[indexSelected]);
                         }
                     }
                 }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -61,10 +61,10 @@ public class UIManager {
         final Spinner minLeftSpinner = (Spinner) timeView.findViewById(R.id.minLeftSpinner);
         final Spinner scoreDiffSpinner = (Spinner) timeView.findViewById(R.id.scoreDiffSpinner);
 
-        final ArrayAdapter<Integer> periodAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.periodsInGame);
-        final ArrayAdapter<Integer> secLeftAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.secsInMin);
-        final ArrayAdapter<Integer> minLeftAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.minsInPeriod);
-        final ArrayAdapter<Integer> scoreDiffAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.scoreDiffs);
+        final ArrayAdapter<Integer> periodAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.PERIODS_IN_GAME);
+        final ArrayAdapter<Integer> secLeftAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.SECS_IN_MIN);
+        final ArrayAdapter<Integer> minLeftAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.MIN_IN_PERIOD);
+        final ArrayAdapter<Integer> scoreDiffAdapter = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, NBAConsts.SCORE_DIFFS);
 
         periodSpinner.setAdapter(periodAdapter);
         secLeftSpinner.setAdapter(secLeftAdapter);
