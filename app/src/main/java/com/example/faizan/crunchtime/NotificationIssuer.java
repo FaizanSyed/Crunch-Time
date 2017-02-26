@@ -20,8 +20,8 @@ import java.util.Calendar;
 
 public class NotificationIssuer implements Runnable {
 
-    Context context;
-    Notification.Builder notification;
+    private Context context;
+    private Notification.Builder notification;
 
     public NotificationIssuer(Context context) {
         this.context = context;

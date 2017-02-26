@@ -14,7 +14,7 @@ import java.util.List;
 
 class TeamListAdapter extends ArrayAdapter<Team> {
 
-    Context context;
+    private Context context;
 
     public TeamListAdapter(Context context, List<Team> teams) {
         super(context, R.layout.team_row ,teams);

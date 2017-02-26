@@ -13,11 +13,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button addButton;
-    Button removeButton;
-    TeamDBManager teamDBManager;
-    ListView teamListView;
-    UIManager uiManager;
+    private Button addButton;
+    private Button removeButton;
+    private TeamDBManager teamDBManager;
+    private ListView teamListView;
+    private UIManager uiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
