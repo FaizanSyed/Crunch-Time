@@ -39,7 +39,7 @@ public class NotificationIssuer implements Runnable {
             int numOfCloseGames = closeNBAGames.length();
 
             // If there are no more possible close games today,
-            // wait until tomorrow at 9am EST (When endpoint is updated)
+            // wait until tomorrow at 12pm EST (When endpoint is updated)
             if(numOfCloseGames == 0){
                 teamDBManager.clearSentNotif();
 
@@ -49,19 +49,19 @@ public class NotificationIssuer implements Runnable {
                 int currESTHour = Integer.parseInt(currTime.substring(0, currTime.indexOf(':')));
                 int currESTMin = Integer.parseInt(currTime.substring(currTime.indexOf(':')+1, currTime.indexOf(':')+3));
 
-                int hoursUntil9am;
-                int minsUntil9am;
-                int secsUntil9am;
+                int hoursUntil12pm;
+                int minsUntil12pm;
+                int secsUntil12pm;
 
-                if(currESTHour < 9){
-                    hoursUntil9am = 9 - currESTHour;
+                if(currESTHour < 12){
+                    hoursUntil12pm = 12 - currESTHour;
                 } else {
-                    hoursUntil9am = ((24-currESTHour)+9);
+                    hoursUntil12pm = ((24-currESTHour)+12);
                 }
-                minsUntil9am = (hoursUntil9am*60)-currESTMin;
-                secsUntil9am = minsUntil9am*60;
+                minsUntil12pm = (hoursUntil12pm*60)-currESTMin;
+                secsUntil12pm = minsUntil12pm*60;
 
-                secondsToSleep = secsUntil9am;
+                secondsToSleep = secsUntil12pm;
             }
 
             // Loop through all trimmed interesting games and look for ones to send a notif for
